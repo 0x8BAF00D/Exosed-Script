@@ -1,5 +1,5 @@
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI/main/UI_Template_1.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robjini/Tutorial_UI/main/UI_Template_1.lua"))()
 
 local Window = Library.CreateLib("Name", "RJTheme3")
 
