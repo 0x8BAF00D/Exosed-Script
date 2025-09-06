@@ -1,17 +1,44 @@
-
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template1"))()
-
-local Window = Library.CreateLib("Exosed_Hub", "RJTheme3")
-
-local Tab = Window:NewTab("Functional")
-
-local Section = Tab:NewSection("Section Name")
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 
-Section:NewSlider("WalkSpeed", "SliderInfo", 500, 0 function(s)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
+local Window = Rayfield:CreateWindow({
+	Name = "Exosed Hub",
+	LoadingTitle = "Loading...",
+	LoadingSubtitle = "By 0x0BAF00D",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil,
+		FileName = "Exosed Hub"
+	},
+	Discord = {
+		Enabled = false,
+		Invite = "noinvitelink",
+		RememberJoins = true
+	},
+	KeySystem = false,
+	KeySettings = {
+		Title = "Exosed Hub",
+		Subtitle = "Key System",
+		FileName = "ExosedKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		key = "Heh"
+	}
 
-Section:NewSlider("JumpPower", "SliderInfo", 200, 0 function(s)
-	game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-end)
+
+
+
+local MainTab:CreateTab("Main", 4483362458)
+
+
+local Slider = Tab:CreateSlider({
+	Name = "WalkSpeed",
+	Range = {16, 250},
+	Increment = 10,
+	Suffix = "WalkSpeed",
+	CurrentValue = 10,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+	end,
+})
