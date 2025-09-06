@@ -1,33 +1,42 @@
 
+-- Загружаем библиотеку UI
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robjini/Tutorial_UI/main/UI_Template_1.lua"))()
 
-local Window = Library.CreateLib("Name", "RJTheme3")
+-- Создаём окно
+local Window = Library.CreateLib("Exosed Script", "RJTheme3")
 
+-- Создаём вкладку
 local Tab = Window:NewTab("Main")
 
-local Section = Tab:NewSection("Section Name")
+-- Создаём секцию
+local Section = Tab:NewSection("ESP")
 
+-- Функция ESP
 local function ESP()
-	while wait(0.5) do
-		for i, childrik in ipairs(workspace:GetDescendants()) do
-			if childrik:FindFirstChild("Humanoid") then
-				if not childrik:FindFirstChild("EspBox") then
-					if childrik ~= game.Players.LocalPlayer.Character then
-						local esp = Instance.new("BoxHandleAdornment", childrik)
-						esp.Adornee = childrik
-						esp.ZIndex = 0
-						esp.Size = Vector3.new(4, 5, 1)
-						esp.Transparency = 0.65
-						esp.Color3 = Color3.fromRGB(255, 48, 48)
-						esp.AlwaysOnTop = true
-						esp.Name = "EspBox"
-					end
-				end
-			end
-		end
-	end
+    task.spawn(function()
+        while task.wait(0.5) do
+            for _, model in ipairs(workspace:GetDescendants()) do
+                if model:FindFirstChild("Humanoid") and model:FindFirstChild("HumanoidRootPart") then
+                    if model ~= game.Players.LocalPlayer.Character then
+                        if not model.HumanoidRootPart:FindFirstChild("EspBox") then
+                            local esp = Instance.new("BoxHandleAdornment")
+                            esp.Adornee = model.HumanoidRootPart
+                            esp.Size = model.HumanoidRootPart.Size
+                            esp.ZIndex = 0
+                            esp.Transparency = 0.65
+                            esp.Color3 = Color3.fromRGB(255, 48, 48)
+                            esp.AlwaysOnTop = true
+                            esp.Name = "EspBox"
+                            esp.Parent = model.HumanoidRootPart
+                        end
+                    end
+                end
+            end
+        end
+    end)
 end
 
+-- Кнопка включения ESP
 Section:NewButton("Enable ESP", "Turns on ESP", function()
-	ESP()
+    ESP()
 end)
