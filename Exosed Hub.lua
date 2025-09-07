@@ -1,7 +1,7 @@
 
 local Library = loadstring(game:HttpGet("https:///raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
 
-local Window = Library:CreateLib("Exosed Hub", "RJTheme3")
+local Window = Library:CreateLib("Exosed Hub", "RJTheme2")
 
 local Tab = Window:NewTab("Functonal")
 
@@ -14,3 +14,4 @@ end)
 Section:NewSlider2("JumpPower", "Slider Info", 100, 0, function(p)
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = p
 end)
+
